@@ -16,7 +16,12 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'pwd' 
+                sh """
+                    pwd
+                    cd /var/www/html
+                    ls
+                    pwd
+                  """  
             }
         }
     }
