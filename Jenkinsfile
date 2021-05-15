@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'lsb_release -a' 
+                sh 'pwd' 
             }
         }
     }
