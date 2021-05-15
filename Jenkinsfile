@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        none
-    }
+    agent none
     environment {
         CI = 'true' 
     }
@@ -17,7 +15,13 @@ pipeline {
                 sh 'ls -laht'
             }
         }
-        stage('Test') { 
+        stage('Test') {
+            agent {
+                docker {
+                    image 'httpd'
+                    args '-v $WORKSPACE:/var/www/html'
+                }
+            }
             steps {
                 sh """
                     pwd
