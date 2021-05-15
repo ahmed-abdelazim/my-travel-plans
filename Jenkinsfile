@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'httpd'
-            args '-v $WORKSPACE:/var/www/html -p 80:80'
+            args '-v $WORKSPACE:/var/www/html'
         }
     }
     environment {
