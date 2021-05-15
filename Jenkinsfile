@@ -1,15 +1,18 @@
 pipeline {
     agent {
-        docker {
-            image 'httpd'
-            args '-v $WORKSPACE:/var/www/html'
-        }
+        none
     }
     environment {
         CI = 'true' 
     }
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    image 'httpd'
+                    args '-v $WORKSPACE:/var/www/html'
+                }
+            }            
             steps {
                 sh 'ls -laht'
             }
