@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'pwd' 
+                sh 'python -v' 
             }
         }
     }
