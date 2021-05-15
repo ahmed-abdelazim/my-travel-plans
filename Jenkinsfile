@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'python:rc-alpine3.13'
-            args '-p 3000:3000'
+            image 'httpd'
+            args '-v ${WORKSPACE}:/var/www/html -p 80:80'
         }
     }
     environment {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'python -v' 
+                sh 'pwd' 
             }
         }
     }
